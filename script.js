@@ -94,10 +94,10 @@ function showQuetions(index){
 
     //creating a new span and div tag for question and option and passing the value using array index
     let que_tag = '<span class="que">'+ questions[index].numb + ". " + questions[index].question +'</span>';
-    let option_tag = '<div class="option " data-indexOption="'+ index + "-"+ 0 +'"><span class="que">'+ questions[index].options[0] +'</span></div>'
-    + '<div class="option" data-indexOption="'+ index + "-"+ 1 +'"><span class="que">'+ questions[index].options[1] +'</span></div>'
-    + '<div class="option" data-indexOption="'+ index + "-"+ 2 +'"><span class="que">'+ questions[index].options[2] +'</span></div>'
-    + '<div class="option" data-indexOption="'+ index + "-"+ 3 +'"><span class="que">'+ questions[index].options[3] +'</span></div>';
+    let option_tag = '<div class="option" id ="opciona" data-indexoption="'+ index + "-"+ 0 +'"><span class="que">'+ questions[index].options[0] +'</span></div>'
+    + '<div class="option" id ="opcionb" data-indexoption="'+ index + "-"+ 1 +'"><span class="que">'+ questions[index].options[1] +'</span></div>'
+    + '<div class="option" id ="opcionc" data-indexoption="'+ index + "-"+ 2 +'"><span class="que">'+ questions[index].options[2] +'</span></div>'
+    + '<div class="option" id ="opciond" data-indexoption="'+ index + "-"+ 3 +'"><span class="que">'+ questions[index].options[3] +'</span></div>';
     que_text.innerHTML = que_tag; //adding new span tag inside que_tag
     option_list.innerHTML = option_tag; //adding new div tag inside option_tag
     
@@ -108,28 +108,80 @@ function showQuetions(index){
     // set onclick attribute to all available options optionSelected(this)
     for(i=0; i < option.length; i++){
         option[i].setAttribute("onclick", "closeOptions(this)");
-        option[i].setAttribute("id", "incisos")
+        // option[i].setAttribute("id", "incisos")
         // console.log(option[i]) mostramos en consola cada opcion de cada pregunta
     }
     
     // acceso al data-indexOption que relaciona los indices de las preguntas con sus respectivas opciones
     var questIndexOption = document.getElementById('opciones');
-    const opta = questIndexOption.dataset.indexOption = questions[index].options;
+    const opta = questIndexOption.dataset.indexoption = questions[index].options;
     console.log(opta);
 
 }
 
-// Accion onclick para ocultar un inciso de cada pregunta
-function closeOptions(){
-    var quest1Optiona = document.getElementById('incisos');
-    quest1Optiona.style.display="none";
-    
+// Accion onclick para seleccionar la opcion a de cada pregunta
+function selectOptiona(){
+    var questsOptiona = document.getElementById('opciona');
+    questsOptiona.style.display="none";
+    const opciona = questsOptiona.dataset.indexoption;
+    console.log('seleccionaste la opcion: ', opciona);
+    console.log(questsOptiona);
 }
-// Accion onclick para mostrar el inciso de cada pregunta
-function openOptions(){
-    var quest1Optiona = document.getElementById('incisos');
-    quest1Optiona.style.display="block";
+// Accion onclick para volver a mostrar el inciso a de cada pregunta
+function showOptiona(){
+    var questsOptiona = document.getElementById('opciona');
+    questsOptiona.style.display="block";
 }
+
+// Accion onclick para seleccionar la opcion b de cada pregunta
+function selectOptionb(){
+    var questsOptionb = document.getElementById('opcionb');
+    questsOptionb.style.display="none";
+    const opcionb = questsOptionb.dataset.indexoption;
+    console.log('seleccionaste la opcion: ', opcionb);
+    console.log(questsOptionb);
+}
+// Accion onclick para volver a mostrar el inciso b de cada pregunta
+function showOptionb(){
+    var questsOptionb = document.getElementById('opcionb');
+    questsOptionb.style.display="block";
+}
+
+// Accion onclick para seleccionar la opcion c de cada pregunta
+function selectOptionc(){
+    var questsOptionc = document.getElementById('opcionc');
+    questsOptionc.style.display="none";
+    const opcionc = questsOptionc.dataset.indexoption;
+    console.log('seleccionaste la opcion: ', opcionc);
+    console.log(questsOptionc);
+}
+// Accion onclick para volver a mostrar el inciso c de cada pregunta
+function showOptionc(){
+    var questsOptionc = document.getElementById('opcionc');
+    questsOptionc.style.display="block";
+}
+
+// Accion onclick para seleccionar la opcion d de cada pregunta
+function selectOptiond(){
+    var questsOptiond = document.getElementById('opciond');
+    questsOptiond.style.display="none";
+    const opciond = questsOptiond.dataset.indexoption;
+    console.log('seleccionaste la opcion: ', opciond)
+    console.log(questsOptiond);
+}
+
+// Accion onclick para volver a mostrar el inciso d de cada pregunta
+function showOptiond(){
+    var questsOptiond = document.getElementById('opciond');
+    questsOptiond.style.display="block";
+}
+
+// funcion para activa el boton de ayuda
+function helpMe(){
+    // var helpMebutton = document.getElementById('help');
+    // helpMebutton.style.display="none";
+}
+
 // creating the new div tags which for icons
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
@@ -166,58 +218,6 @@ function optionSelected(answer){
     }
     next_btn.classList.add("show"); //show the next button if user selected any option
 }
-
-// funcion para seleccionar la pregunta 1 y alguno de sus 4 incisos
-function preguntaUno(){
-    console.log('opciones de la pregunta 1');
-    const optsQuest1 = questions[0].options;
-    const answersQuest1 = questions[0].answer;
-    // accedemos a cada una de las opciones de la pregunta 1
-    for(i=0; i<optsQuest1.length; i++){
-        console.log(optsQuest1[i]);
-    }
-}
-
-// funcion para seleccionar la pregunta 2 y alguno de sus 4 incisos
-function preguntaDos(){
-    console.log('opciones de la pregunta 2');
-    const optsQuest2 = questions[1].options;
-    // accedemos a cada una de las opciones de la pregunta 2
-    for(i=0; i<optsQuest2.length; i++){
-        console.log(optsQuest2[i]);
-    }
-}
-
-// funcion para seleccionar la pregunta 3 y alguno de sus 4 incisos
-function preguntaTres(){
-    console.log('opciones de la pregunta 3');
-    const optsQuest3 = questions[2].options;
-    // accedemos a cada una de las opciones de la pregunta 3
-    for(i=0; i<optsQuest3.length; i++){
-        console.log(optsQuest3[i]);
-    }
-}
-
-// funcion para seleccionar la pregunta 4 y alguno de sus 4 incisos
-function preguntaCuatro(){
-    console.log('opciones de la pregunta 4');
-    const optsQuest4 = questions[3].options;
-    // accedemos a cada una de las opciones de la pregunta 4
-    for(i=0; i<optsQuest4.length; i++){
-        console.log(optsQuest4[i]);
-    }
-}
-
-// funcion para seleccionar la pregunta 5 y alguno de sus 4 incisos
-function preguntaCinco(){
-    console.log('opciones de la pregunta 5');
-    const optsQuest5 = questions[4].options;
-    // accedemos a cada una de las opciones de la pregunta 5
-    for(i=0; i<optsQuest5.length; i++){
-        console.log(optsQuest5[i]);
-    }
-}
-
 
 // funcion que muestra los resultados 
 function showResult(){

@@ -94,26 +94,32 @@ if (annyang) {
             console.log('salir');
             window.location.reload(); //reload the current window
         },
-        'opciones de la pregunta uno':function(){
-            preguntaUno();
+        'seleccionar el inciso a':function(){
+            selectOptiona();
         },
-        'opciones de la pregunta dos':function(){
-            preguntaDos();
+        'mostrar el inciso a': function(){
+            showOptiona();
         },
-        'opciones de la pregunta tres':function(){
-            preguntaTres();
+        'seleccionar el inciso b':function(){
+            selectOptionb();
         },
-        'opciones de la pregunta cuatro':function(){
-            preguntaCuatro();
+        'mostrar el inciso b': function(){
+            showOptionb();
         },
-        'opciones de la pregunta cinco':function(){
-            preguntaCinco();
+        'seleccionar el inciso c':function(){
+            selectOptionc();
         },
-        'seleccionar el inciso':function(){
-            closeOptions();
+        'mostrar el inciso c': function(){
+            showOptionc();
         },
-        'mostrar el inciso': function(){
-            openOptions();
+        'seleccionar el inciso de':function(){
+            selectOptiond();
+        },
+        'mostrar el inciso de': function(){
+            showOptiond();
+        },
+        'ayuda': function(){
+            // helpMe();
         },
     });
     annyang.setLanguage("es-MX");
