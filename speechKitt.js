@@ -97,29 +97,29 @@ if (annyang) {
         'seleccionar el inciso a':function(){
             selectOptiona();
         },
-        'mostrar el inciso a': function(){
+        'corregir respuesta del inciso a': function(){
             showOptiona();
         },
         'seleccionar el inciso b':function(){
             selectOptionb();
         },
-        'mostrar el inciso b': function(){
+        'corregir respuesta del inciso b': function(){
             showOptionb();
         },
         'seleccionar el inciso c':function(){
             selectOptionc();
         },
-        'mostrar el inciso c': function(){
+        'corregir respuesta del inciso c': function(){
             showOptionc();
         },
         'seleccionar el inciso de':function(){
             selectOptiond();
         },
-        'mostrar el inciso de': function(){
+        'corregir respuesta del inciso de': function(){
             showOptiond();
         },
-        'ayuda': function(){
-            // helpMe();
+        'ayuda':function(){
+            helpMe();
         },
     });
     annyang.setLanguage("es-MX");

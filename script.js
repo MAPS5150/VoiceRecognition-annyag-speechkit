@@ -107,9 +107,8 @@ function showQuetions(index){
     
     // set onclick attribute to all available options optionSelected(this)
     for(i=0; i < option.length; i++){
-        option[i].setAttribute("onclick", "closeOptions(this)");
-        // option[i].setAttribute("id", "incisos")
-        // console.log(option[i]) mostramos en consola cada opcion de cada pregunta
+        option[i].setAttribute("onclick", "optionSelected(this)");
+    
     }
     
     // acceso al data-indexOption que relaciona los indices de las preguntas con sus respectivas opciones
@@ -122,49 +121,111 @@ function showQuetions(index){
 // Accion onclick para seleccionar la opcion a de cada pregunta
 function selectOptiona(){
     var questsOptiona = document.getElementById('opciona');
-    questsOptiona.style.display="none";
+    var questsOptionb = document.getElementById('opcionb');
+    var questsOptionc = document.getElementById('opcionc');
+    var questsOptiond = document.getElementById('opciond');
+     
+    questsOptiona.style.display="block";
+    questsOptionb.style.display="none";
+    questsOptionc.style.display="none";
+    questsOptiond.style.display="none";
+    // accion onclick que selecciona la opcion a demandada
+    questsOptiona.onclick();
+    // accedemos al conjunto de datos del parametro index option
     const opciona = questsOptiona.dataset.indexoption;
     console.log('seleccionaste la opcion: ', opciona);
     console.log(questsOptiona);
+    
+    
 }
+   
 // Accion onclick para volver a mostrar el inciso a de cada pregunta
 function showOptiona(){
-    var questsOptiona = document.getElementById('opciona');
-    questsOptiona.style.display="block";
+    // var questsOptiona = document.getElementById('opciona');
+    var questsOptionb = document.getElementById('opcionb');
+    var questsOptionc = document.getElementById('opcionc');
+    var questsOptiond = document.getElementById('opciond');
+    
+    // questsOptiona.style.display="none";
+    questsOptionb.style.display="block";
+    questsOptionc.style.display="block";
+    questsOptiond.style.display="block";
 }
 
 // Accion onclick para seleccionar la opcion b de cada pregunta
 function selectOptionb(){
+    var questsOptiona = document.getElementById('opciona');
     var questsOptionb = document.getElementById('opcionb');
-    questsOptionb.style.display="none";
+    var questsOptionc = document.getElementById('opcionc');
+    var questsOptiond = document.getElementById('opciond');
+    
+    questsOptiona.style.display="none";
+    questsOptionb.style.display="block";
+    questsOptionc.style.display="none";
+    questsOptiond.style.display="none";
+    // accion onclick que selecciona la opcion b demandada
+    questsOptionb.onclick();
+
     const opcionb = questsOptionb.dataset.indexoption;
     console.log('seleccionaste la opcion: ', opcionb);
     console.log(questsOptionb);
+    
 }
 // Accion onclick para volver a mostrar el inciso b de cada pregunta
 function showOptionb(){
-    var questsOptionb = document.getElementById('opcionb');
-    questsOptionb.style.display="block";
+    var questsOptiona = document.getElementById('opciona');
+    var questsOptionc = document.getElementById('opcionc');
+    var questsOptiond = document.getElementById('opciond');
+    
+    questsOptiona.style.display="block";
+    questsOptionc.style.display="block";
+    questsOptiond.style.display="block";
 }
 
 // Accion onclick para seleccionar la opcion c de cada pregunta
 function selectOptionc(){
+    var questsOptiona = document.getElementById('opciona');
+    var questsOptionb = document.getElementById('opcionb');
     var questsOptionc = document.getElementById('opcionc');
-    questsOptionc.style.display="none";
+    var questsOptiond = document.getElementById('opciond');
+
+    questsOptiona.style.display="none";
+    questsOptionb.style.display="none";
+    questsOptionc.style.display="block";
+    questsOptiond.style.display="none";
+    // accion onclick que selecciona la opcion c demandada
+    questsOptionc.onclick();
+
     const opcionc = questsOptionc.dataset.indexoption;
     console.log('seleccionaste la opcion: ', opcionc);
     console.log(questsOptionc);
+    
 }
 // Accion onclick para volver a mostrar el inciso c de cada pregunta
 function showOptionc(){
-    var questsOptionc = document.getElementById('opcionc');
-    questsOptionc.style.display="block";
+    var questsOptiona = document.getElementById('opciona');
+    var questsOptionb = document.getElementById('opcionb');
+    var questsOptiond = document.getElementById('opciond');
+    
+    questsOptiona.style.display="block";
+    questsOptionb.style.display="block";
+    questsOptiond.style.display="block";
 }
 
 // Accion onclick para seleccionar la opcion d de cada pregunta
 function selectOptiond(){
+    var questsOptiona = document.getElementById('opciona');
+    var questsOptionb = document.getElementById('opcionb');
+    var questsOptionc = document.getElementById('opcionc');
     var questsOptiond = document.getElementById('opciond');
-    questsOptiond.style.display="none";
+
+    questsOptiona.style.display="none";
+    questsOptionb.style.display="none";
+    questsOptionc.style.display="none";
+    questsOptiond.style.display="block";
+    // accion onclick que selecciona la opcion d demandada
+    questsOptiond.onclick();
+
     const opciond = questsOptiond.dataset.indexoption;
     console.log('seleccionaste la opcion: ', opciond)
     console.log(questsOptiond);
@@ -172,14 +233,22 @@ function selectOptiond(){
 
 // Accion onclick para volver a mostrar el inciso d de cada pregunta
 function showOptiond(){
-    var questsOptiond = document.getElementById('opciond');
-    questsOptiond.style.display="block";
+    var questsOptiona = document.getElementById('opciona');
+    var questsOptionb = document.getElementById('opcionb');
+    var questsOptionc = document.getElementById('opcionc');
+    
+    questsOptiona.style.display="block";
+    questsOptionb.style.display="block";
+    questsOptionc.style.display="block";
 }
 
-// funcion para activa el boton de ayuda
+
+// funcion para activar el boton de ayuda
 function helpMe(){
-    // var helpMebutton = document.getElementById('help');
-    // helpMebutton.style.display="none";
+    var helpMebutton = document.getElementById('help');
+    // helpMebutton.style.display='block';
+    console.log(helpMebutton);
+    // helpMebutton.onclick();
 }
 
 // creating the new div tags which for icons
