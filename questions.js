@@ -3,18 +3,18 @@ let questions = [
     {
     numb: 1,
     question: "¿Qué significa HTML?",
-    answer: "Lenguaje hipertexto de marcado",
+    answer: "b) Lenguaje hipertexto de marcado",
     options: [
-      " a) Preprocesador de hipertexto",
-      " b) Lenguaje hipertexto de marcado",
-      " c) Hipertexto de idioma multiple",
-      " d) Hyper herramienta de idioma multiple"
+      "a) Preprocesador de hipertexto",
+      "b) Lenguaje hipertexto de marcado",
+      "c) Hipertexto de idioma multiple",
+      "d) Hyper herramienta de idioma multiple"
     ]
   },
     {
     numb: 2,
     question: "¿Qué significa CSS?",
-    answer: "Hoja de estilo en cascada",
+    answer: "d) Hoja de estilo en cascada",
     options: [
       "a) Hoja de estilo común",
       "b) Hoja de estilo colorido",
@@ -25,7 +25,7 @@ let questions = [
     {
     numb: 3,
     question: "¿Qué significa PHP?",
-    answer: "Preprocesador de hipertexto",
+    answer: "a) Preprocesador de hipertexto",
     options: [
       "a) Preprocesador de hipertexto",
       "b) Programación de hipertexto",
@@ -36,7 +36,7 @@ let questions = [
     {
     numb: 4,
     question: "¿Qué significa SQL?",
-    answer: "Lenguaje estructurado de consulta",
+    answer: "d) Lenguaje estructurado de consulta",
     options: [
       "a) Lenguaje de preguntas con estilo",
       "b) Lenguaje de consulta de hoja de estilo",
@@ -47,7 +47,7 @@ let questions = [
     {
     numb: 5,
     question: "¿Qué significa XML?",
-    answer: "Lenguaje de marcado extensible",
+    answer: "a) Lenguaje de marcado extensible",
     options: [
       "a) Lenguaje de marcado extensible",
       "b) Lenguaje múltiple ejecutable",

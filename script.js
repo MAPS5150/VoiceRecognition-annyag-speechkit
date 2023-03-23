@@ -56,7 +56,7 @@ restart_quiz.onclick = ()=>{
     clearInterval(counterLine); //clear counterLine
     startTimer(timeValue); //calling startTimer function
     startTimerLine(widthValue); //calling startTimerLine function
-    timeText.textContent = "Time Left"; //change the text of timeText to Time Left
+    timeText.textContent = "Tiempo:"; //change the text of timeText to Time Left
     next_btn.classList.remove("show"); //hide the next button
 }
 
@@ -79,7 +79,7 @@ next_btn.onclick = ()=>{
         clearInterval(counterLine); //clear counterLine
         startTimer(timeValue); //calling startTimer function
         startTimerLine(widthValue); //calling startTimerLine function
-        timeText.textContent = "Time Left"; //change the timeText to Time Left
+        timeText.textContent = "Tiempo:"; //change the timeText to Time Left
         next_btn.classList.remove("show"); //hide the next button
     }else{
         clearInterval(counter); //clear counter
@@ -135,23 +135,8 @@ function selectOptiona(){
     const opciona = questsOptiona.dataset.indexoption;
     console.log('seleccionaste la opcion: ', opciona);
     console.log(questsOptiona);
-    
-    
 }
    
-// Accion onclick para volver a mostrar el inciso a de cada pregunta
-function showOptiona(){
-    // var questsOptiona = document.getElementById('opciona');
-    var questsOptionb = document.getElementById('opcionb');
-    var questsOptionc = document.getElementById('opcionc');
-    var questsOptiond = document.getElementById('opciond');
-    
-    // questsOptiona.style.display="none";
-    questsOptionb.style.display="block";
-    questsOptionc.style.display="block";
-    questsOptiond.style.display="block";
-}
-
 // Accion onclick para seleccionar la opcion b de cada pregunta
 function selectOptionb(){
     var questsOptiona = document.getElementById('opciona');
@@ -170,16 +155,6 @@ function selectOptionb(){
     console.log('seleccionaste la opcion: ', opcionb);
     console.log(questsOptionb);
     
-}
-// Accion onclick para volver a mostrar el inciso b de cada pregunta
-function showOptionb(){
-    var questsOptiona = document.getElementById('opciona');
-    var questsOptionc = document.getElementById('opcionc');
-    var questsOptiond = document.getElementById('opciond');
-    
-    questsOptiona.style.display="block";
-    questsOptionc.style.display="block";
-    questsOptiond.style.display="block";
 }
 
 // Accion onclick para seleccionar la opcion c de cada pregunta
@@ -201,16 +176,6 @@ function selectOptionc(){
     console.log(questsOptionc);
     
 }
-// Accion onclick para volver a mostrar el inciso c de cada pregunta
-function showOptionc(){
-    var questsOptiona = document.getElementById('opciona');
-    var questsOptionb = document.getElementById('opcionb');
-    var questsOptiond = document.getElementById('opciond');
-    
-    questsOptiona.style.display="block";
-    questsOptionb.style.display="block";
-    questsOptiond.style.display="block";
-}
 
 // Accion onclick para seleccionar la opcion d de cada pregunta
 function selectOptiond(){
@@ -231,25 +196,51 @@ function selectOptiond(){
     console.log(questsOptiond);
 }
 
-// Accion onclick para volver a mostrar el inciso d de cada pregunta
-function showOptiond(){
-    var questsOptiona = document.getElementById('opciona');
-    var questsOptionb = document.getElementById('opcionb');
-    var questsOptionc = document.getElementById('opcionc');
-    
-    questsOptiona.style.display="block";
-    questsOptionb.style.display="block";
-    questsOptionc.style.display="block";
+const reload_btn = document.querySelector(".reload");
+// elemento funcional para responder nuevamente una pregunta
+reload_btn.onclick = ()=>{
+    if(que_count < questions.length - 1){ //if question count is less than total question length
+        // que_count++; //increment the que_count value
+        // que_numb++; //increment the que_numb value
+        showQuetions(que_count); //calling showQestions function
+        queCounter(que_numb); //passing que_numb value to queCounter
+        clearInterval(counter); //clear counter
+        clearInterval(counterLine); //clear counterLine
+        startTimer(timeValue); //calling startTimer function
+        startTimerLine(widthValue); //calling startTimerLine function
+        timeText.textContent = "Tiempo:"; //change the timeText to Time Left
+        next_btn.classList.remove("show"); //hide the next button
+    }else{
+        clearInterval(counter); //clear counter
+        clearInterval(counterLine); //clear counterLine
+        showResult(); //calling showResult function
+    }
 }
 
+// funcion para repetir pregunta
+function reloadQuestions(){
+    if(que_count < questions.length){ //if question count is less than total question length
+        // que_count++; //increment the que_count value
+        // que_numb++; //increment the que_numb value
+        showQuetions(que_count); //calling showQestions function
+        queCounter(que_numb); //passing que_numb value to queCounter
+        clearInterval(counter); //clear counter
+        clearInterval(counterLine); //clear counterLine
+        startTimer(timeValue); //calling startTimer function
+        startTimerLine(widthValue); //calling startTimerLine function
+        timeText.textContent = "Tiempo:"; //change the timeText to Time Left
+        next_btn.classList.remove("show"); //hide the next button
+    }else{
+        clearInterval(counter); //clear counter
+        clearInterval(counterLine); //clear counterLine
+        showResult(); //calling showResult function
+    }
+}
 
 // funcion para activar el boton de ayuda
-function helpMe(){
-    var helpMebutton = document.getElementById('help');
-    // helpMebutton.style.display='block';
-    console.log(helpMebutton);
-    // helpMebutton.onclick();
-}
+// function helpMe(){
+//     var helpMebutton = document.getElementById('help');
+// }
 
 // creating the new div tags which for icons
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
@@ -257,6 +248,7 @@ let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
 //if user clicked on option
 function optionSelected(answer){
+    var reloadbutton = document.getElementById('retrybutton');
     clearInterval(counter); //clear counter
     clearInterval(counterLine); //clear counterLine
     let userAns = answer.textContent; //getting user selected option
@@ -265,25 +257,28 @@ function optionSelected(answer){
     
     if(userAns == correcAns){ //if user selected option is equal to array's correct answer
         userScore += 1; //upgrading score value with 1
-        answer.classList.add("correct"); //adding green color to correct selected option
-        answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
-        console.log("Correct Answer");
+       // answer.classList.add("correct"); //adding green color to correct selected option
+      //  answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
+      //console.log("Correct Answer");
         console.log("Your correct answers = " + userScore);
+        reloadbutton.style.display="none";
     }else{
-        answer.classList.add("incorrect"); //adding red color to correct selected option
-        answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
-        console.log("Wrong Answer");
-
-        for(i=0; i < allOptions; i++){
-            if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 
-                option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
-                option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
-                console.log("Auto selected correct answer.");
-            }
-        }
+       // answer.classList.add("incorrect"); //adding red color to correct selected option
+       // answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
+       console.log("Wrong Answer");
+       reloadbutton.style.display="block";
+        //for(i=0; i < allOptions; i++){
+           // if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 
+          //      option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
+          //      option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
+         //       console.log("Auto selected correct answer.");
+//}
+      //  }
     }
     for(i=0; i < allOptions; i++){
         option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
+        option_list.children[i].style.display="none";
+        answer.style.display="block";
     }
     next_btn.classList.add("show"); //show the next button if user selected any option
 }
@@ -320,7 +315,7 @@ function startTimer(time){
         }
         if(time < 0){ //if timer is less than 0
             clearInterval(counter); //clear counter
-            timeText.textContent = "Tiempo"; //change the time text to time off
+            timeText.textContent = "Tiempo:"; //change the time text to time off
             const allOptions = option_list.children.length; //getting all option items
             let correcAns = questions[que_count].answer; //getting correct answer from array
             for(i=0; i < allOptions; i++){

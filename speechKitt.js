@@ -97,29 +97,20 @@ if (annyang) {
         'seleccionar el inciso a':function(){
             selectOptiona();
         },
-        'corregir respuesta del inciso a': function(){
-            showOptiona();
+        'corregir':function(){
+            reloadQuestions();
         },
         'seleccionar el inciso b':function(){
             selectOptionb();
         },
-        'corregir respuesta del inciso b': function(){
-            showOptionb();
-        },
         'seleccionar el inciso c':function(){
             selectOptionc();
-        },
-        'corregir respuesta del inciso c': function(){
-            showOptionc();
         },
         'seleccionar el inciso de':function(){
             selectOptiond();
         },
-        'corregir respuesta del inciso de': function(){
-            showOptiond();
-        },
         'ayuda':function(){
-            helpMe();
+            
         },
     });
     annyang.setLanguage("es-MX");
