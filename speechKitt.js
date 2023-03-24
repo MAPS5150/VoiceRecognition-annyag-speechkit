@@ -97,9 +97,6 @@ if (annyang) {
         'seleccionar el inciso a':function(){
             selectOptiona();
         },
-        'corregir':function(){
-            reloadQuestions();
-        },
         'seleccionar el inciso b':function(){
             selectOptionb();
         },
@@ -109,8 +106,11 @@ if (annyang) {
         'seleccionar el inciso de':function(){
             selectOptiond();
         },
+        'corregir':function(){
+            reloadQuestions();
+        },
         'ayuda':function(){
-            
+            helpMe();
         },
     });
     annyang.setLanguage("es-MX");
@@ -119,17 +119,17 @@ if (annyang) {
     // sintetizador de texto a voz
     var checkbox = document.getElementById('input');
     checkbox.addEventListener("change", validaCheckbox, false);
-    function validaCheckbox()
-    {
-    var checked = checkbox.checked;
-    if(checked){
-        const items = document.getElementsByClassName("info");
-    for (let index = 0; index < items.length; index++) {
-        decir(items[index].innerHTML);    
-    }
-    }
+    function validaCheckbox(){
+        var checked = checkbox.checked;
+        if(checked){
+            const items = document.getElementsByClassName("info");
+            for (let index = 0; index < items.length; index++) {
+                decir(items[index].innerHTML);    
+            }
+        }
     }
 
+    // funcion que activa el sitetizador de texto a voz
     function decir(texto){
         const recorder = speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
         recorder.lang = 'es-MX';

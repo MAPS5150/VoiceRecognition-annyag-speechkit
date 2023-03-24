@@ -199,7 +199,7 @@ function selectOptiond(){
 const reload_btn = document.querySelector(".reload");
 // elemento funcional para responder nuevamente una pregunta
 reload_btn.onclick = ()=>{
-    if(que_count < questions.length - 1){ //if question count is less than total question length
+    if(que_count < questions.length){ //if question count is less than total question length
         // que_count++; //increment the que_count value
         // que_numb++; //increment the que_numb value
         showQuetions(que_count); //calling showQestions function
@@ -215,6 +215,8 @@ reload_btn.onclick = ()=>{
         clearInterval(counterLine); //clear counterLine
         showResult(); //calling showResult function
     }
+
+    console.log('Corrige tu respuesta')
 }
 
 // funcion para repetir pregunta
@@ -235,12 +237,35 @@ function reloadQuestions(){
         clearInterval(counterLine); //clear counterLine
         showResult(); //calling showResult function
     }
+
+    console.log('Corrige tu respuesta')
+}
+
+// funciones loadName() y myName() para que el usuario agregue su nombre al cuestionario al iniciar la pagina
+var userName = ['Bienvenid@ al cuestionario  '];
+function loadName(){
+    document.getElementById('username').innerHTML = userName;
+}
+
+function myName(){
+    var name = prompt("Escribe tu nombre completo: ");
+    userName[userName.length] = name;
+    document.getElementById("username").innerHTML = userName;
 }
 
 // funcion para activar el boton de ayuda
-// function helpMe(){
-//     var helpMebutton = document.getElementById('help');
-// }
+function helpMe(){
+    var helpText = ['hola', 'iniciar evaluación', 'salir', 'continuar', 'siguiente pregunta', 'resultados', 'contestar nuevamente', 'salir', 'seleccionar el inciso a', 'seleccionar el inciso b', 'seleccionar el inciso c', 'seleccionar el inciso d', 'corregir'];
+    for(let index = 0; index<helpText.length; index++){
+        decir(helpText);
+    }
+}
+
+// funcion que activa el sitetizador de texto a voz
+function decir(texto){
+    const recorder = speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
+    recorder.lang = 'es-MX';
+}
 
 // creating the new div tags which for icons
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
@@ -260,12 +285,12 @@ function optionSelected(answer){
        // answer.classList.add("correct"); //adding green color to correct selected option
       //  answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
       //console.log("Correct Answer");
-        console.log("Your correct answers = " + userScore);
+        console.log("Respuestas correctas = " + userScore);
         reloadbutton.style.display="none";
     }else{
        // answer.classList.add("incorrect"); //adding red color to correct selected option
        // answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
-       console.log("Wrong Answer");
+       console.log("Respuesta incorrecta");
        reloadbutton.style.display="block";
         //for(i=0; i < allOptions; i++){
            // if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 

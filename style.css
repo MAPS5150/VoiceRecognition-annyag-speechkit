@@ -392,3 +392,10 @@ footer button.show{
     width: 30px;
     height: 30px;
 }
+
+#studentname{
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    left: 32rem;
+}

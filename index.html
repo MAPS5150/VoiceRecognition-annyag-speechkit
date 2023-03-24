@@ -12,9 +12,9 @@
     <!-- FontAweome CDN Link for Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
-<body onload="">
+<body onload="loadName()">
     <!-- Boton que dispara la ventana modal -->
-    <button type="button" id="help" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" id="help" class="btn btn-info" onclick="helpMe()" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Ayuda
     </button>
     
@@ -27,7 +27,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <ul>
+                <ol>
                     <li><i>Hola</i></li>
                     <li><i>Iniciar evaluación</i></li>
                     <li><i>Salir</i></li>
@@ -40,9 +40,8 @@
                     <li><i>Seleccionar el inciso b</i></li>
                     <li><i>Seleccionar el inciso c</i></li>
                     <li><i>Seleccionar el inciso d</i></li>
-                    <h5><b>Para corregir una respuesta solo hay que hablar la sigiente palabra:</b></h5>
                     <li><i>Corregir</i></li>
-                </ul>
+                </ol>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -50,6 +49,12 @@
             </div>
         </div>
         </div>
+    </div>
+
+    <!-- nombre del alumno -->
+    <div id="studentname">
+        <button onclick="myName()">Agrega tu nombre completo</button>
+        <p id="username"></p>
     </div>
 
     <!-- start Quiz button -->
@@ -88,12 +93,6 @@
                 <div class="timer_sec">15</div>
             </div>
             <div class="time_line"></div>
-            <!-- Reintentar pregunta -->
-            <!-- <div>
-                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                    Hola
-                </button>
-            </div> -->
             <div>
                 <button type="button" class="btn btn-dark reload" id="retrybutton" data-toggle="tooltip" data-placement="top" title="Corregir respuesta"><img src="refresh.png" alt="refresh" id="refreshimg"></button>
             </div>
